@@ -8,6 +8,18 @@
 
 - Python 3（標準ライブラリのみで動作。追加のパッケージは不要）
 
+## 地図の準備
+
+このリポジトリには地図のSVGを含めていません。地図にはそれぞれのライセンスがあるためです。使う地図は各自で入手し、`maps/` フォルダを作ってそこに置いてください。
+
+| ファイル名 | 入手元 |
+|---|---|
+| `maps/japan-map-full.svg` | [geolonia/japanese-prefectures](https://github.com/geolonia/japanese-prefectures) の `map-full.svg` |
+| `maps/world.svg` | [Simplemaps](http://simplemaps.com) の世界地図（SVG） |
+| `maps/World_map_(Mercator_projection)_Pacific-centric.svg` | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:World_map_(Mercator_projection)_Pacific-centric.svg) |
+
+ほかの地図のSVGも使えます（[制限事項](#制限事項)を参照）。
+
 ## 使い方
 
 ```sh
@@ -102,19 +114,22 @@ dots=5632 highlighted=47 cols=182 rows=94 step=4.0 -> output/world-pacific-dot.s
 ```
 .
 ├── README.md
+├── LICENSE                      変換ツールのライセンス（MIT）
 ├── generate_dot_map.py          変換ツール本体
-├── maps/                        入力の地図
-│   ├── japan-map-full.svg       日本の都道府県地図（Geolonia）
-│   ├── world.svg                世界地図（Simplemaps）
-│   └── World_map_(Mercator_projection)_Pacific-centric.svg
-│                                太平洋中心のメルカトル図法の世界地図
-└── output/                      出力のドット絵SVG
+├── maps/                        入力の地図（各自で用意する。Gitの管理外）
+└── output/                      出力のドット絵SVG（自動で作られる。Gitの管理外）
 ```
+
+## ライセンス
+
+`generate_dot_map.py` は MIT License です（[LICENSE](LICENSE) を参照）。このライセンスは変換ツールにだけ適用され、地図のデータには適用されません。
 
 ## 入力データの出典とライセンス
 
-入力SVGは外部で作成された地図データです。変換後のドット絵を配布・公開する場合は、元データのライセンスに従って出典を表示してください。
+入力SVGは外部で作成された地図データです。変換後のドット絵は元の地図をもとにした二次的な著作物になる場合があります。配布・公開するときは、元データのライセンスに従って出典を表示してください。
 
-- `maps/japan-map-full.svg`：Geolonia（https://geolonia.com/）作成。
+- `maps/japan-map-full.svg`：Geolonia（https://geolonia.com/）作成。Wikipedia の「日本地図.svg」をもとにしたデータで、ライセンスは GFDL です（[リポジトリのREADME](https://github.com/geolonia/japanese-prefectures) による）。
 - `maps/world.svg`：Simplemaps（http://simplemaps.com）作成。MIT License。ファイル内の表記は「Copyright (c) 2020 Pareto Softare, LLC DBA Simplemaps.com」（綴りは原文のまま）。
-- `maps/World_map_(Mercator_projection)_Pacific-centric.svg`：ファイル内に出典・ライセンスの記載がないため、入手元で確認してください。
+- `maps/World_map_(Mercator_projection)_Pacific-centric.svg`：Wikimedia Commons のユーザー Hccbe 作成。ライセンスは [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) です。
+
+GFDL と CC BY-SA 4.0 は、元データをもとに作ったものを同じライセンス（または互換のあるライセンス）で公開することを求めます。これらの地図から作ったドット絵を公開するときは注意してください。
