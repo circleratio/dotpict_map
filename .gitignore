@@ -1,0 +1,7 @@
+# Map images may be subject to third-party licenses; do not commit them
+maps/
+# Generated dot maps are derived from the map images
+output/
+
+__pycache__/
+*.pyc
